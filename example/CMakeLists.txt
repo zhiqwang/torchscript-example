@@ -29,14 +29,9 @@ elseif(WIN32)
   message(FATAL_ERROR "Windows is not supported")
 endif()
 
-target_include_directories(
-  ${LIB_NAME}
-  PUBLIC ${TORCH_INCLUDE_DIRS}
-  PUBLIC ${Python3_INCLUDE_DIRS}
-)
-
 target_link_libraries(
   ${LIB_NAME}
-  PUBLIC ${TORCH_LIBRARIES}
-  PUBLIC ${TORCH_PYTHON_LIBRARY}
+  ${TORCH_LIBRARIES}
+  ${TORCH_PYTHON_LIBRARY}
+  Python3::Python
 )
